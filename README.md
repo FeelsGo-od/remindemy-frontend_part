@@ -47,16 +47,17 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 # TODO ***
 1. Show topics from database
-    1. Make database
+    1. Make database (Prisma/Postgres on Supabase)
     2. Add some fake topics objects like 
-    {name: "topic name", link: "link to the topic", stage: "today" / "tomorrow" / "third day" / "7th day" / "remembered", date: 'current date'}
+    {name: "topic name", link: "link to the topic", stage: "today" / "tomorrow" / "third day" / "7th day" / "remembered", date: 'current date'} to the "Progress" database object
     3. Make api call to that db in topicsSlice thunk to receive all topics
     4. Add those topics to store with extra Reducer
     5. Show all these topics in main page
 2. Add new topic to db
 3. Add user email from form to db object like {name: "Username", email: "usersemail@..}
 4. Send message to each email with info like "Hi Name, today is the day to repeat this topic: link"
-5. Check each topic stage in db everyday, and send notifications depending on stages.
+5. Send notifications depending on stages of each topic in "Progress" database object
 6. Change stage of sent topic for the next
-7. Show status of each topic right behind it in topicsList component
-8. Deploy to the vercel
+7. Move notification with "remembered" stage to the "Completed" database object.
+8. Show status of each topic(from "Progress" db object) right behind this topic in topicsList component
+9. Deploy it to the vercel
