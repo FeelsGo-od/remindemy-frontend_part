@@ -46,18 +46,16 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 # TODO ***
-1. Show topics from database
-    1. Make database (Prisma/Postgres on Supabase)
-    2. Add some fake topics objects like 
-    {name: "topic name", link: "link to the topic", stage: "today" / "tomorrow" / "third day" / "7th day" / "remembered", date: 'current date'} to the "Progress" database object
-    3. Make api call to that db in topicsSlice thunk to receive all topics
-    4. Add those topics to store with extra Reducer
-    5. Show all these topics in main page
-2. Add new topic to db
-3. Add user email from form to db object like {name: "Username", email: "usersemail@..}
-4. Send message to each email with info like "Hi Name, today is the day to repeat this topic: link"
-5. Send notifications depending on stages of each topic in "Progress" database object
-6. Change stage of sent topic for the next
-7. Move notification with "remembered" stage to the "Completed" database object.
-8. Show status of each topic(from "Progress" db object) right behind this topic in topicsList component
-9. Deploy it to the vercel
+
+1. Configure all project requirements(database)
+2. Make AddUser feature {name: "Username", email: "usersemail@..", topics: obj}
+3. AddTopic in UserPage feature
+    1. Create db for user's individual topics
+    2. Add some fake topics objects like {name: "topic name", link: "link to the topic", stage: "today" / "tomorrow" / "third day" / "7th day" / "remembered", date: 'date of the next message'}
+    2. Make api call to that db in topicsSlice thunk to receive all topics
+    3. Add those topics to store with extra Reducer
+    4. Show all these topics in UserPage
+4. Show user's topics from database in UserPage
+5. Send scheduled messages to user's email with info like "Hi Username, today is the day to repeat this topic: a.href=topics.link>topics.name<"
+6. Show status(stage) of each topic right behind it in topicsList component
+7. Deploy it to the vercel
