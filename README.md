@@ -47,7 +47,8 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 # TODO ***
 
-1. Configure all project requirements(database)
+1. Configure all project prerequisites(database)
+    - mongodb connection string: "mongodb+srv://admin:LoraGaf998@remindemycluster.zwcs7hc.mongodb.net/?retryWrites=true&w=majority"
 2. Make AddUser feature {name: "Username", email: "usersemail@..", topics: obj}
 3. AddTopic in UserPage feature
     1. Create db for user's individual topics
@@ -59,3 +60,4 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 5. Send scheduled messages to user's email with info like "Hi Username, today is the day to repeat this topic: a.href=topics.link>topics.name<"
 6. Show status(stage) of each topic right behind it in topicsList component
 7. Deploy it to the vercel
+8. Make the link in topic to be optional

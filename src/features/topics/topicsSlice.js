@@ -6,9 +6,7 @@ const topicsAdapter = createEntityAdapter({
 const topicsSlice = createSlice({
     name: 'topics',
     initialState: topicsAdapter.getInitialState(),
-    reducers: {
-        
-    }
+    reducers: {}
 })
 
 export default topicsSlice.reducer
