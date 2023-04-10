@@ -44,6 +44,20 @@
   }
 }
 
+#error-page {
+  text-align: center;
+  margin-top: 40px;
+}
+
+#error-page p {
+  margin-bottom: 40px;
+  padding-top: 10px;
+}
+
+#error-page a {
+  font-size: 17px;
+}
+
 .navbar {
   display: flex;
   justify-content: center;
@@ -69,4 +83,90 @@
 
 .navbar li a:hover {
   text-decoration: underline;
+}
+
+.form {
+  width: 40%;
+  margin: 100px auto 0;
+  background: #eae9e9;
+  border-radius: 6px;
+  padding: 120px 0;
+}
+
+.form input {
+  width: 100%;
+  padding: 10px 2px;
+  font-size: 17px;
+  border: 1px solid #d6d6d6;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+.form input:focus {
+  border: 1px solid #494747;
+  outline: none;
+}
+
+.form label {
+  text-align: left;
+  margin-right: 5px;
+}
+
+.form .form-block {
+  margin-top: 10px;
+  padding: 10px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1024px) {
+  .form .form-input {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 11px;
+  }
+  .form label {
+    margin-right: 0;
+  }
+}
+
+.form .button {
+  margin-top: 16px;
+  cursor: pointer;
+  padding: 20px 0;
+  background: #252424;
+  color: #ffffff;
+  border: none;
+  border-radius: 7px;
+  font-size: 17px;
+}
+
+.form .button:hover {
+  color: #dbdada;
+}
+
+.form-error {
+  color: #dd2915;
+  font-size: 17px;
+  padding: 22px 23px 0 23px;
+}
+
+.users-content {
+  background: #e2e2e2;
+  color: #363636;
+  width: 70%;
+  margin: 0 auto;
+  padding: 18px;
+  border-radius: 4px;
+}
+
+.users-content .title {
+  font-size: 34px;
+  padding-bottom: 18px;
+}
+
+.users-content p {
+  margin-bottom: 8px;
 }
