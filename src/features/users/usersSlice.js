@@ -4,6 +4,12 @@ const initialState = {
     users: [],
     status: 'idle',
     error: null,
+    // for login
+    loading: false,
+    userInfo: {},
+    userToken: null,
+    loginError: null,
+    success: false,
 }
 
 export const fetchUsers = createAsyncThunk('users', async () => {
@@ -15,17 +21,15 @@ export const fetchUsers = createAsyncThunk('users', async () => {
 export const addNewUser = createAsyncThunk('/users/createUser', async (user) => {
     const response = await fetch('http://localhost:8000/users/createUser', {
         method: 'POST',
-        // mode: 'cors',
-        // cache: 'no-cache',
         credentials: 'same-origin',
         headers: {
             'Content-type': 'application/json',
         },
-        // redirect: 'follow',
-        // referrerPolicy: 'no-referrer',
         body: JSON.stringify(user)
     })
-    return response.json()
+
+    const result = response.json();
+    return result;
 })
 
 export const loginUser = createAsyncThunk('/users/login', async (data) => {
@@ -37,7 +41,9 @@ export const loginUser = createAsyncThunk('/users/login', async (data) => {
         },
         body: JSON.stringify(data)
     })
-    return response.json()
+
+    const result = response.json();
+    return result;
 })
 
 const usersSlice = createSlice({
@@ -55,6 +61,15 @@ const usersSlice = createSlice({
         })
         .addCase(addNewUser.fulfilled, (state, action) => {
             state.users.push(action.payload)
+        })
+        .addCase(loginUser.fulfilled, (state, action) => {
+            if(!action.payload.message) {
+                state.status = 'error'
+                state.error = action.payload.message
+            } else {
+                state.status = 'succeeded'
+                state.error = null;
+            }
         })
     }
 })

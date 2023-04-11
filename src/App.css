@@ -170,3 +170,8 @@
 .users-content p {
   margin-bottom: 8px;
 }
+
+.content {
+  padding-top: 20px;
+  font-size: 17px;
+}
