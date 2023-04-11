@@ -46,6 +46,16 @@ export const loginUser = createAsyncThunk('/users/login', async (data) => {
     return result;
 })
 
+export const showProfile = createAsyncThunk('/users/profile', async (token) => {
+    const response = await fetch('http://localhost:8000/users/profile', {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    const result = await response.json()
+    return result;
+})
+
 const usersSlice = createSlice({
     name: 'users',
     initialState,

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useSelector } from 'react-redux'
 
 import Navbar from "../../components/Navbar";
-import { loginUser } from "./usersSlice";
+import { loginUser, showProfile } from "./usersSlice";
 
 export default function LoginForm() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loginError, setLoginError] = useState('')
+    const [successMessage, setSuccessMessage] = useState('')
 
     const dispatch = useDispatch()
 
@@ -25,6 +25,12 @@ export default function LoginForm() {
                 setEmail('');
                 setPassword('');
                 setLoginError('')
+                // check token and signin user
+                dispatch(showProfile(result.payload.token)).then((loginStatus) => {
+                    console.log(loginStatus);
+                    if(loginStatus.payload.message) setSuccessMessage(loginStatus.payload.message)
+                    // save here status to the localstorage to keep user logged-in for a while
+                })
             }
         })
     }
@@ -32,6 +38,9 @@ export default function LoginForm() {
     return (
         <>
             <Navbar />
+            {successMessage ? 
+            <h2 className="center pt-23">{successMessage}</h2> 
+            : 
             <form onSubmit={handleSubmit} className="form">
                 <div className="form-block">
                     <label htmlFor="email">Enter your email: </label>
@@ -45,7 +54,7 @@ export default function LoginForm() {
                     <input className="button" type="submit" value="Login" />
                 </div>
                 {loginError ? <div className="form-block">{loginError}</div> : ''}
-            </form>
+            </form>}
         </>
     )
 }

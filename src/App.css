@@ -44,6 +44,14 @@
   }
 }
 
+.center {
+  text-align: center;
+}
+
+.pt-23 {
+  padding-top: 23px;
+}
+
 #error-page {
   text-align: center;
   margin-top: 40px;
