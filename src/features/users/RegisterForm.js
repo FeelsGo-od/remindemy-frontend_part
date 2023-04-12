@@ -24,7 +24,8 @@ export default function RegisterForm() {
                 return;
             }
 
-            dispatch(addNewUser({name, email, password}))
+            const topics = {}
+            dispatch(addNewUser({name, email, password, topics}))
 
             setName('');
             setEmail('');

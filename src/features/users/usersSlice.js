@@ -4,12 +4,6 @@ const initialState = {
     users: [],
     status: 'idle',
     error: null,
-    // for login
-    loading: false,
-    userInfo: {},
-    userToken: null,
-    loginError: null,
-    success: false,
 }
 
 export const fetchUsers = createAsyncThunk('users', async () => {
