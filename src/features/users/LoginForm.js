@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import Navbar from "../../components/Navbar";
 import { loginUser, showProfile } from "./usersSlice";
 
 export default function LoginForm() {
@@ -37,7 +36,6 @@ export default function LoginForm() {
 
     return (
         <>
-            <Navbar />
             {successMessage ? 
             <h2 className="center pt-23">{successMessage}</h2> 
             : 

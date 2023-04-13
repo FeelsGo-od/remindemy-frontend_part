@@ -1,15 +1,23 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom'
 import './App.css';
 
+import Home from './pages/Home'
+import Register from './pages/Register'
+import Login from './pages/Login'
+import Users from './pages/Users'
 import Navbar from './components/Navbar';
-import Profile from './features/users/Profile';
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <Profile id='643726341186ab2b9fd5039b' />
-      <div className='content'>You need to sign-in or sign-up to use this app</div>
+      <Routes className="navbar">
+            <Route path="/" element={ <Home /> } />
+            <Route path="/register" element={ <Register /> } />
+            <Route path="/login" element={ <Login /> } />
+            <Route path="/users" element={ <Users /> } />
+      </Routes>
     </div>
   );
 }

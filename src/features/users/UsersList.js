@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Navbar from "../../components/Navbar";
 import { fetchUsers } from "./usersSlice";
 
 export default function UsersList () {
@@ -31,7 +30,6 @@ export default function UsersList () {
 
     return (
         <>
-            <Navbar />
             <div className="users-content">
                 <h3 className="title">Users using this app:</h3>
                 {listUsers}

@@ -36,7 +36,6 @@ export default function RegisterForm() {
 
     return (
         <>
-            <Navbar />
             <form onSubmit={handleSubmit} className="form">
                 <div className="form-block form-input">
                     <label htmlFor="name">Enter your name: </label>

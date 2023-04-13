@@ -72,24 +72,21 @@
   background: #000;
 }
 
-.navbar ul {
+.navbar {
   list-style-type: none;
 }
 
-.navbar li {
+.navbar .link {
   margin: 12px;
-}
-
-.navbar li a {
   color: aliceblue;
   text-decoration: none;
 }
 
-.navbar li a.active {
+.navbar .link.active {
   font-weight: bold;
 }
 
-.navbar li a:hover {
+.navbar .link:hover {
   text-decoration: underline;
 }
 
