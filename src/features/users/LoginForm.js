@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from 'react-router-dom';
 
 import { loginUser, showProfile } from "./usersSlice";
 
@@ -10,13 +11,19 @@ export default function LoginForm() {
     const [successMessage, setSuccessMessage] = useState('')
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const userData = JSON.parse(localStorage.getItem('user'))
+
+    useEffect(() => {
+        if(userData) navigate('/', { replace: true })
+    }, [])
 
     // add form validation code here
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         dispatch(loginUser({email, password})).then((result) => {
-            console.log(result);
             if(result.payload.message) {
                 setLoginError(result.payload.message);
             } else {
@@ -26,9 +33,11 @@ export default function LoginForm() {
                 setLoginError('')
                 // check token and signin user
                 dispatch(showProfile(result.payload.token)).then((loginStatus) => {
-                    console.log(loginStatus);
                     if(loginStatus.payload.message) setSuccessMessage(loginStatus.payload.message)
                     // save here status to the localstorage to keep user logged-in for a while
+                    localStorage.setItem('user', JSON.stringify(result.meta.arg))
+                    navigate('/', { replace: true })
+                    window.location.reload()
                 })
             }
         })

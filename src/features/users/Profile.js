@@ -29,7 +29,7 @@ export default function Profile ({id}) {
                 <p>{topic}</p>
             ))
         } else {
-            topics = 'No topics at the moment'
+            topics = `You do not have topics at the moment`
         }
     }
 
