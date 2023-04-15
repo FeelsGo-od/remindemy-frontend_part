@@ -50,6 +50,20 @@ export const showProfile = createAsyncThunk('/users/profile', async (token) => {
     return result;
 })
 
+export const addUsersTopic = createAsyncThunk('/users/addTopic', async (data) => {
+    const response = await fetch('http://localhost:8000/users', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+            'Content-type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+
+    const result = response.json()
+    return result
+})
+
 const usersSlice = createSlice({
     name: 'users',
     initialState,

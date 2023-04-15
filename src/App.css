@@ -52,6 +52,18 @@
   padding-top: 23px;
 }
 
+.pl-23 {
+  padding-left: 23px;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.mg-none {
+  margin: 0 !important;
+}
+
 #error-page {
   text-align: center;
   margin-top: 40px;
