@@ -28,9 +28,9 @@ export default function Profile ({id}) {
         topics = 'Loading...'
     } else if (usersStatus === 'succeeded') {
         if(Object.keys(currentUser.topics).length !== 0) {
-            topics = currentUser.topics.map((topic) => (
-                <p>{topic}</p>
-            ))
+            // topics = currentUser.topics.map((topic) => (
+            //     <p>{topic}</p>
+            // ))
         } else {
             topics = `You do not have topics at the moment`
         }

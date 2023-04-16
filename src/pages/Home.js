@@ -4,11 +4,12 @@ import Profile from '../features/users/Profile';
 
 function Home () {
   const userData = JSON.parse(localStorage.getItem('user'))
+  const userId = JSON.parse(localStorage.getItem('userId'))
 
   return (
     <div>
       {userData ? 
-        <Profile id='643726341186ab2b9fd5039b' />
+        <Profile id={userId} />
       : 
         <div className='content'>You need to <a href='/login'>sign-in</a> or <a href='register'>sign-up</a> to use this app</div>
       }

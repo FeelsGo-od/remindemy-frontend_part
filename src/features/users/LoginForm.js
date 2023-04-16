@@ -34,8 +34,9 @@ export default function LoginForm() {
                 // check token and signin user
                 dispatch(showProfile(result.payload.token)).then((loginStatus) => {
                     if(loginStatus.payload.message) setSuccessMessage(loginStatus.payload.message)
-                    // save here status to the localstorage to keep user logged-in for a while
+                    // save status to the localstorage to keep user logged-in for a while
                     localStorage.setItem('user', JSON.stringify(result.meta.arg))
+                    localStorage.setItem('userId', JSON.stringify(loginStatus.payload.currentUser._id))
                     navigate('/', { replace: true })
                     window.location.reload()
                 })

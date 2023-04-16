@@ -10,8 +10,21 @@ export default function AddTopicById ({id}) {
 
     const dispatch = useDispatch()
 
+    const handleFileChange = (e) => {
+        setFileList(e.target.files)
+    }
+
+    const files = fileList ? [...fileList] : [];
+
     const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
+
+        // if (!fileList) return;
+
+        const imagesData = new FormData()
+        files.forEach((file, i) => {
+            imagesData.append(`file-${i}`, file, file.name)
+        })
 
         dispatch(addUsersTopic({id, text, link}))
     }
@@ -25,7 +38,13 @@ export default function AddTopicById ({id}) {
                 </div>
                 <div className="form-block form-input">
                     <label htmlFor="images">Add images u want to study later: </label>
-                    <input type="file" name="images" id="images" />
+                    <input type="file" onChange={handleFileChange} accept="image/*" multiple name="images" id="images" />
+                    <ul>
+                        {/* {fileList.map((file) => (
+                                <p>{file}</p>
+                            )
+                        )} */}
+                    </ul>
                 </div>
                 <div className="form-block form-input">
                     <label htmlFor="link">Add the link to repeat it later: </label>

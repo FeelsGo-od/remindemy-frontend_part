@@ -51,7 +51,7 @@ export const showProfile = createAsyncThunk('/users/profile', async (token) => {
 })
 
 export const addUsersTopic = createAsyncThunk('/users/addTopic', async (data) => {
-    const response = await fetch('http://localhost:8000/users', {
+    const response = await fetch('http://localhost:8000/users/addTopic', {
         method: 'POST',
         credentials: 'same-origin',
         headers: {
