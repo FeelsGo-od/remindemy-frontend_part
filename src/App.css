@@ -170,6 +170,15 @@
   padding: 22px 23px 0 23px;
 }
 
+.form-uploaded-images {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-uploaded-img  {
+  width: 30%;
+}
+
 .users-content {
   background: #e2e2e2;
   color: #363636;
