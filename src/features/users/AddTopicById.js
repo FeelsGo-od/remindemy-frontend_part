@@ -19,9 +19,7 @@ export default function AddTopicById ({id}) {
     const dispatch = useDispatch()
 
     const handleImagesChange = (e) => {
-        if(e.target.files) {
-            setImageList([...e.target.files])
-        }
+        setImageList([...imageList, ...e.target.files])
     }
 
     const handleSubmit = (e) => {
@@ -29,7 +27,7 @@ export default function AddTopicById ({id}) {
 
         if (!imageList) return;
 
-        const imagesData = 'add here links to images from google cloud'
+        const imagesData = 'add here links to images from cloudinary'
 
         dispatch(addUsersTopic({id, imagesData, text, link}))
     }
@@ -45,7 +43,7 @@ export default function AddTopicById ({id}) {
                     <label htmlFor="images">Add images u want to study later: </label>
                     <input type="file" onChange={handleImagesChange} accept="image/*" multiple name="images" id="images" />
                     <div className="form-uploaded-images">
-                        { imageURLs.map(imageSrc => <img src={imageSrc} className="form-uploaded-img" />) }
+                        { imageURLs.map((imageSrc, index) => <img key={index} src={imageSrc} className="form-uploaded-img" />) }
                     </div>
                 </div>
                 <div className="form-block form-input">
