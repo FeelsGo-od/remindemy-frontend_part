@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import axios from 'axios';
 
 import { addUsersTopic } from "./usersSlice";
 
@@ -22,15 +23,27 @@ export default function AddTopicById ({id}) {
         setImageList([...imageList, ...e.target.files])
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (!imageList) return;
 
-        const imagesData = 'add here links to images from cloudinary'
-
-        dispatch(addUsersTopic({id, imagesData, text, link}))
+        // send here images to cloudinary, and send images links to db(UsersTopic)
+        try {
+            const formData = new FormData()
+            formData.append('images', [...imageList])
+            formData.append('upload_preset', 'remindemyTopicsImages')
+            const dataRes = await axios.post(
+                process.env.REACT_APP_CLOUDINARY_URL,
+                formData,
+            )
+            let imagesLinks = dataRes.data.url;
+            dispatch(addUsersTopic({id, imagesLinks, text, link}))
+        } catch (error) {
+            console.log(error)
+        }
     }
+    console.log(process.env.REACT_APP_CLOUDINARY_URL)
 
     return (
         <>
